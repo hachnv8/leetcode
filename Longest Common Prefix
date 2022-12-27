@@ -1,0 +1,29 @@
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+    z = dequy(strs, 0, []);
+    console.log(z);
+    return z;
+};
+
+var dequy = function(strs, num, result) {
+    count = 0;
+    s = strs[0][num];
+    for(i = 0; i < strs.length; i++) {
+        if(strs[i][num] == s) {
+            count++;
+        } else {
+            break;
+        }
+        if(count == strs.length) {
+            result.push(s);
+            if(num <= strs.length) {
+                dequy(strs, num+1, result);
+            }
+        }
+    }
+    if(result.length == 0) return "";
+    return result.join('');
+}
